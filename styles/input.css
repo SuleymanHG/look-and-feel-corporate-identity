@@ -1,0 +1,28 @@
+
+input,label{
+    margin: 20px;
+}
+
+input:checked + label{
+    color: blue;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-style: italic;
+    border: 2px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 3px;
+    background-color: yellow;
+}
+
+input:hover+label{
+    background-color: greenyellow;
+}
+
+input:nth-child(2){
+    background-color: lightgrey;
+}
+
+input:in-range{
+    background-color:green
+}
