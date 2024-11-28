@@ -6,15 +6,56 @@ De instructie vind je in: [INSTRUCTIONS](https://github.com/fdnd-task/look-and-f
 
 
 # Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+Qatar museums corporate identity
 
 ## Beschrijving
-<!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
+In deze sprint hebben we de opdracht gekregen om ons te richten op de stylesheet en het visuele ontwerp van de website. Het doel was om een samenhangende en toegankelijke gebruikerservaring te creëren die aansluit bij de bestaande huisstijl van Qatar Museums.
 <!-- Voeg een mooie poster visual toe 📸 -->
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
 ## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met Javascript gedaan en hoe? Misschien heb je een framwork of library gebruikt? -->
+1. Dynamisch Laden van Afbeeldingen via de Pexels API
+Code:
+```
+const container = document.querySelector('.grid');
+const apiKey = 'Id7ZnvcbuagCH5xt4V02lWUJAj4kCakcxGrbfEDiROH4zpHyC8DUI0Oa';
+let page = 1;
+const query = 'islamic art';
+const perPage = 50;
+
+function loadImages() {
+  const URL = `https://api.pexels.com/v1/search?query=${query}&per_page=${perPage}&page=${page}`;
+
+  fetch(URL, {
+    headers: {
+      Authorization: apiKey
+    }
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data.photos && data.photos.length > 0) {
+        data.photos.forEach(photo => {
+          const img = document.createElement('img');
+          img.src = photo.src.medium;
+          img.alt = photo.photographer;
+          container.appendChild(img);
+        });
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching images from Pexels:', error);
+    });
+
+  page++;
+}
+
+loadImages();
+```
+Uitleg:
+
+Deze functie maakt gebruik van de Pexels API om afbeeldingen op te halen op basis van de zoekterm islamic art.
+Dynamische inhoud: Voor elke afbeelding wordt een <img>-element aangemaakt en toegevoegd aan de container .grid.
+Paginering: Variabele page wordt verhoogd om nieuwe inhoud op te halen bij het scrollen.
 
 ## Bronnen
 
