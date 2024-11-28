@@ -14,7 +14,7 @@ In deze sprint hebben we de opdracht gekregen om ons te richten op de stylesheet
 <!-- Voeg een link toe naar Github Pages 🌐-->
 
 ## Kenmerken
-1. Dynamisch Laden van Afbeeldingen via de Pexels API
+Dynamisch Laden van Afbeeldingen via de Pexels API
 Code:
 ```
 const container = document.querySelector('.grid');
@@ -57,6 +57,24 @@ Deze functie maakt gebruik van de Pexels API om afbeeldingen op te halen op basi
 Dynamische inhoud: Voor elke afbeelding wordt een <img>-element aangemaakt en toegevoegd aan de container .grid.
 Paginering: Variabele page wordt verhoogd om nieuwe inhoud op te halen bij het scrollen.
 
+Toegankelijk Hamburger Menu
+Code:
+```
+const hamburger = document.querySelector('.hamburger');
+const nav = document.querySelector('nav');
+
+hamburger.addEventListener('click', () => {
+  nav.classList.toggle('active');
+  const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+  hamburger.setAttribute('aria-expanded', !expanded);
+});
+```
+Uitleg:
+
+Klasse active:
+Activeert/deactiveert het menu door de klasse .active aan het <nav>-element toe te voegen.
+Toegankelijkheid:
+Het aria-expanded-attribuut wordt dynamisch aangepast, wat de toegankelijkheid voor schermlezers verbetert.
 ## Bronnen
 
 ## Licentie
