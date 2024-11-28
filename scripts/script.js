@@ -1,7 +1,7 @@
 const container = document.querySelector('.grid');
 const apiKey = 'Id7ZnvcbuagCH5xt4V02lWUJAj4kCakcxGrbfEDiROH4zpHyC8DUI0Oa';
 let page = 1;
-const query = 'nature';
+const query = 'islamic art';
 const perPage = 50;
 
 function loadImages() {
